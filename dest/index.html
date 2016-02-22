@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Taxi game</title>
+
+    <style>
+        canvas {
+            background: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<form id="settings">Cars
+    <input id="cars" type="number" value="10"/><br/>
+    Orders <input id="orders" type="number" value="10"/><br/>
+    <input type="submit"/>
+</form>
+<canvas id="canvas" width="800" height="800"></canvas>
+
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+<script src="../bower_components/underscore/underscore-min.js"></script>
+<script src="../bower_components/pathfinding/pathfinding-browser.js"></script>
+<script src="game.js"></script>
+</body>
+</html>

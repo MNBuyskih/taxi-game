@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"babel --out-file dest/game.js --source-maps -w src/main.js\""
+  },
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-plugin-transform-export-extensions": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0"
+  }
+}
