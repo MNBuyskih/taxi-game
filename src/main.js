@@ -2,7 +2,6 @@ class Game {
     constructor(cars, orders, selector) {
         this.fps = 60;
         this.canvas = new GameCanvas(selector);
-        this.grid = new PF.Grid(this.canvas.width, this.canvas.height);
         this.cars = this.createList(cars, Car);
         this.orders = this.createList(orders, Order);
 
