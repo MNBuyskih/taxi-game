@@ -21,8 +21,10 @@ var Game = function () {
 
         _.each(this.orders, function (order) {
             order.randomDestination(_this.canvas.width, _this.canvas.height);
-            _this.findNearestCar(order);
         });
+
+        this.takenOrders = 0;
+        this.$takenOrders = $('#takenOrders');
 
         this.step();
     }
@@ -37,6 +39,12 @@ var Game = function () {
                     return _this2.step();
                 }, 1000 / _this2.fps);
             });
+
+            if (this.takenOrders < this.orders.length) {
+                this.findNearestCar(this.orders[this.takenOrders]);
+                this.takenOrders++;
+                this.$takenOrders.html(this.takenOrders);
+            }
 
             _.each(this.cars, function (car) {
                 if (!car.path) return;

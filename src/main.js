@@ -7,14 +7,22 @@ class Game {
 
         _.each(this.orders, (order) => {
             order.randomDestination(this.canvas.width, this.canvas.height);
-            this.findNearestCar(order);
         });
+
+        this.takenOrders = 0;
+        this.$takenOrders = $('#takenOrders');
 
         this.step();
     }
 
     step() {
         this.request = requestAnimationFrame(() => this.timeout = setTimeout(() => this.step(), 1000 / this.fps));
+
+        if (this.takenOrders < this.orders.length) {
+            this.findNearestCar(this.orders[this.takenOrders]);
+            this.takenOrders++;
+            this.$takenOrders.html(this.takenOrders);
+        }
 
         _.each(this.cars, (car) => {
             if (!car.path) return;
